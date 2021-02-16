@@ -1,22 +1,22 @@
-import React from "react";
-import Helmet from "react-helmet";
-import { Link, graphql } from "gatsby";
-import Layout from "../components/Layout";
-import ModelList from "../components/ModelList";
+import React from 'react'
+import Helmet from 'react-helmet'
+import { Link, graphql } from 'gatsby'
+import Layout from '../components/Layout'
+import ModelList from '../components/ModelList'
 
 class TagRoute extends React.Component {
   render() {
-    const posts = this.props.data.allMarkdownRemark.edges;
+    const posts = this.props.data.allMarkdownRemark.edges
     const postLinks = posts.map(post => (
       <li key={post.node.fields.slug} className="ModelList__item">
         <div className="ModelList__title">
           <Link to={post.node.fields.slug}>{post.node.frontmatter.title}</Link>
         </div>
       </li>
-    ));
-    const tag = this.props.pageContext.tag;
-    const title = this.props.data.site.siteMetadata.title;
-    const tagHeader = `${tag}`;
+    ))
+    const tag = this.props.pageContext.tag
+    const title = this.props.data.site.siteMetadata.title
+    const tagHeader = `${tag}`
 
     return (
       <Layout>
@@ -50,11 +50,11 @@ class TagRoute extends React.Component {
           </div>
         </section>
       </Layout>
-    );
+    )
   }
 }
 
-export default TagRoute;
+export default TagRoute
 
 export const tagPageQuery = graphql`
   query TagPage($tag: String) {
@@ -81,4 +81,4 @@ export const tagPageQuery = graphql`
       }
     }
   }
-`;
+`

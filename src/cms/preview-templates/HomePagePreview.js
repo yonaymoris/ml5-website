@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { HomePageTemplate } from "../../templates/home-page";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { HomePageTemplate } from '../../templates/home-page'
 
 const HomePagePreview = ({ entry, getAsset }) => {
-  const data = entry.getIn(["data"]).toJS();
+  const data = entry.getIn(['data']).toJS()
 
   if (data) {
     return (
@@ -16,17 +16,17 @@ const HomePagePreview = ({ entry, getAsset }) => {
         intro={data.intro || { blurbs: [] }}
         mainpitch={data.mainpitch || {}}
       />
-    );
+    )
   } else {
-    return <div>Loading...</div>;
+    return <div>Loading...</div>
   }
-};
+}
 
 HomePagePreview.propTypes = {
   entry: PropTypes.shape({
-    getIn: PropTypes.func
+    getIn: PropTypes.func,
   }),
-  getAsset: PropTypes.func
-};
+  getAsset: PropTypes.func,
+}
 
-export default HomePagePreview;
+export default HomePagePreview

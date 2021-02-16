@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react'
+import PropTypes from 'prop-types'
 // import { kebabCase } from "lodash";
-import Helmet from "react-helmet";
-import { graphql } from "gatsby";
-import Layout from "../components/Layout";
-import Content, { HTMLContent } from "../components/Content";
+import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
+import Layout from '../components/Layout'
+import Content, { HTMLContent } from '../components/Content'
 
 export const CommunityPostTemplate = ({
   content,
@@ -12,13 +12,13 @@ export const CommunityPostTemplate = ({
   description,
   tags,
   title,
-  helmet
+  helmet,
 }) => {
-  const PostContent = contentComponent || Content;
+  const PostContent = contentComponent || Content
 
   return (
     <section className="ml5Grid__wrapper">
-      {helmet || ""}
+      {helmet || ''}
       <div className="ml5Grid__container ml5Grid__container--communityPage">
         <section className="ml5Grid__sidebar">
           <div className="Sidebar__container" />
@@ -43,19 +43,19 @@ export const CommunityPostTemplate = ({
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
 CommunityPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
   title: PropTypes.string,
-  helmet: PropTypes.object
-};
+  helmet: PropTypes.object,
+}
 
 const CommunityPost = ({ data }) => {
-  const { markdownRemark: post } = data;
+  const { markdownRemark: post } = data
 
   return (
     <Layout>
@@ -76,16 +76,16 @@ const CommunityPost = ({ data }) => {
         title={post.frontmatter.title}
       />
     </Layout>
-  );
-};
+  )
+}
 
 CommunityPost.propTypes = {
   data: PropTypes.shape({
-    markdownRemark: PropTypes.object
-  })
-};
+    markdownRemark: PropTypes.object,
+  }),
+}
 
-export default CommunityPost;
+export default CommunityPost
 
 export const pageQuery = graphql`
   query CommunityPostByID($id: String!) {
@@ -100,4 +100,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

@@ -1,5 +1,5 @@
-import React from "react";
-import Layout from "../components/Layout";
+import React from 'react'
+import Layout from '../components/Layout'
 
 const NotFoundPage = () => (
   <Layout>
@@ -24,6 +24,6 @@ const NotFoundPage = () => (
       </div>
     </section>
   </Layout>
-);
+)
 
-export default NotFoundPage;
+export default NotFoundPage

@@ -1,12 +1,12 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { kebabCase } from "lodash";
-import Helmet from "react-helmet";
-import { graphql, Link } from "gatsby";
-import Layout from "../components/Layout";
-import Content, { HTMLContent } from "../components/Content";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { kebabCase } from 'lodash'
+import Helmet from 'react-helmet'
+import { graphql, Link } from 'gatsby'
+import Layout from '../components/Layout'
+import Content, { HTMLContent } from '../components/Content'
 // import StartList from "../components/StartList";
-import "react-tabs/style/react-tabs.css";
+import 'react-tabs/style/react-tabs.css'
 
 export const StartPageTemplate = ({
   content,
@@ -15,13 +15,13 @@ export const StartPageTemplate = ({
   tags,
   title,
   draft,
-  helmet
+  helmet,
 }) => {
-  const PostContent = contentComponent || Content;
+  const PostContent = contentComponent || Content
 
   return (
     <article className="ml5Grid__content">
-      {helmet || ""}
+      {helmet || ''}
       <div className="">
         <h1 className="">
           {title}
@@ -41,8 +41,8 @@ export const StartPageTemplate = ({
         <PostContent content={content} />
       </div>
     </article>
-  );
-};
+  )
+}
 
 StartPageTemplate.propTypes = {
   content: PropTypes.node.isRequired,
@@ -50,11 +50,11 @@ StartPageTemplate.propTypes = {
   description: PropTypes.string,
   title: PropTypes.string,
   helmet: PropTypes.object,
-  draft: PropTypes.bool
-};
+  draft: PropTypes.bool,
+}
 
 const StartPage = ({ data }) => {
-  const { markdownRemark: post } = data;
+  const { markdownRemark: post } = data
 
   return (
     <Layout>
@@ -87,16 +87,16 @@ const StartPage = ({ data }) => {
         </div>
       </section>
     </Layout>
-  );
-};
+  )
+}
 
 StartPage.propTypes = {
   data: PropTypes.shape({
-    markdownRemark: PropTypes.object
-  })
-};
+    markdownRemark: PropTypes.object,
+  }),
+}
 
-export default StartPage;
+export default StartPage
 
 export const pageQuery = graphql`
   query StartByID($id: String!) {
@@ -112,4 +112,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

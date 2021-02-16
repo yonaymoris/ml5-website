@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "gatsby";
+import React from 'react'
+import { Link } from 'gatsby'
 
-import logo from "../img/itp_logo.png";
+import logo from '../img/itp_logo.png'
 // import facebook from "../img/social/facebook.svg";
 // import instagram from "../img/social/instagram.svg";
 // import twitter from "../img/social/twitter.svg";
@@ -34,7 +34,10 @@ const Footer = class extends React.Component {
                     </a>
                   </li>
                   <li>
-                    <a className="Footer__item" href="https://learn.ml5js.org/#/reference/index">
+                    <a
+                      className="Footer__item"
+                      href="https://learn.ml5js.org/#/reference/index"
+                    >
                       API Reference
                     </a>
                   </li>
@@ -58,7 +61,12 @@ const Footer = class extends React.Component {
                     </Link>
                   </li>
                   <li>
-                    <a className="Footer__item" href="https://docs.google.com/forms/d/e/1FAIpQLSdPz0ICzTSVdLAteIKwJ-zFzX6dX5l3dOpjWGzm6LIZutKvlA/viewform" target="_blank" rel="noopener noreferrer">
+                    <a
+                      className="Footer__item"
+                      href="https://docs.google.com/forms/d/e/1FAIpQLSdPz0ICzTSVdLAteIKwJ-zFzX6dX5l3dOpjWGzm6LIZutKvlA/viewform"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       Submit
                     </a>
                   </li>
@@ -104,10 +112,15 @@ const Footer = class extends React.Component {
                 <ul className="Footer_list">
                   <li>
                     <span className="Footer__item--title Footer__item">
-                      <a href="https://www.netlify.com" 
-                         target="_blank"
-                         rel="noopener noreferrer">
-                        <img src="https://www.netlify.com/img/global/badges/netlify-light.svg" alt="Deploys by Netlify" />
+                      <a
+                        href="https://www.netlify.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <img
+                          src="https://www.netlify.com/img/global/badges/netlify-light.svg"
+                          alt="Deploys by Netlify"
+                        />
                       </a>
                     </span>
                   </li>
@@ -149,8 +162,8 @@ const Footer = class extends React.Component {
           </div> */}
         </div>
       </footer>
-    );
+    )
   }
-};
+}
 
-export default Footer;
+export default Footer

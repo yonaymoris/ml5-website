@@ -1,49 +1,46 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Link, graphql, StaticQuery } from "gatsby";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link, graphql, StaticQuery } from 'gatsby'
 
+function displaySectionByTag(models, tag) {
+  if (!models) return ''
 
-function displaySectionByTag(models, tag){
-  if(!models) return ""
-
-  const selected = models.filter( ({ node: model }) => model.frontmatter.tags.includes(tag));
+  const selected = models.filter(({ node: model }) =>
+    model.frontmatter.tags.includes(tag)
+  )
   console.log(selected)
   return (
-      <section id={`section-${tag}`}>
-          <h2 style={{"paddingLeft":"0.75rem"}}>{tag}</h2>
-          <ul className="ModelList">
-          
-          {selected.map(({ node: model }) => (
-              <li className="ModelList__item" key={model.id}>
-              <div className="ModelList__title">
-                <Link
-                  activeClassName="ModelList__link--active"
-                  to={model.fields.slug}
-                >
-                  {model.frontmatter.title}
-                </Link>
-              </div>
-            </li>
-          ))}
+    <section id={`section-${tag}`}>
+      <h2 style={{ paddingLeft: '0.75rem' }}>{tag}</h2>
+      <ul className="ModelList">
+        {selected.map(({ node: model }) => (
+          <li className="ModelList__item" key={model.id}>
+            <div className="ModelList__title">
+              <Link
+                activeClassName="ModelList__link--active"
+                to={model.fields.slug}
+              >
+                {model.frontmatter.title}
+              </Link>
+            </div>
+          </li>
+        ))}
       </ul>
-      </section>
+    </section>
   )
-
 }
 
 class ModelList extends React.Component {
   render() {
-    const { data } = this.props;
-    const { edges: models } = data.allMarkdownRemark;
+    const { data } = this.props
+    const { edges: models } = data.allMarkdownRemark
 
-    const modelsFiltered = models.filter( ({ node: model }) => {
+    const modelsFiltered = models.filter(({ node: model }) => {
       return !model.frontmatter.tags.includes('reference')
     })
 
-    
-
     return (
-      <ul className="ModelList" style={{"paddingBottom":"6rem"}}>
+      <ul className="ModelList" style={{ paddingBottom: '6rem' }}>
         {/* {modelsFiltered &&
           modelsFiltered.map(({ node: model }) => (
             <li className="ModelList__item" key={model.id}>
@@ -57,22 +54,22 @@ class ModelList extends React.Component {
               </div>
             </li>
           ))} */}
-          { displaySectionByTag(modelsFiltered, 'image')}
-          { displaySectionByTag(modelsFiltered, 'sound')}
-          { displaySectionByTag(modelsFiltered, 'text')}
-          { displaySectionByTag(modelsFiltered, 'helpers')}
+        {displaySectionByTag(modelsFiltered, 'image')}
+        {displaySectionByTag(modelsFiltered, 'sound')}
+        {displaySectionByTag(modelsFiltered, 'text')}
+        {displaySectionByTag(modelsFiltered, 'helpers')}
       </ul>
-    );
+    )
   }
 }
 
 ModelList.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.array
-    })
-  })
-};
+      edges: PropTypes.array,
+    }),
+  }),
+}
 
 export default () => (
   <StaticQuery
@@ -104,4 +101,4 @@ export default () => (
     `}
     render={(data, count) => <ModelList data={data} count={count} />}
   />
-);
+)

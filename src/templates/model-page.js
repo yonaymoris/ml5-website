@@ -1,15 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { kebabCase } from "lodash";
-import Helmet from "react-helmet";
-import { graphql, Link } from "gatsby";
-import Layout from "../components/Layout";
-import Content, { HTMLContent } from "../components/Content";
-import ModelList from "../components/ModelList";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import MarkdownContent from "../components/MarkdownContent";
-import Highlight from "react-highlight.js";
-import ResponsiveIframe from "../components/ResponsiveIframe";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { kebabCase } from 'lodash'
+import Helmet from 'react-helmet'
+import { graphql, Link } from 'gatsby'
+import Layout from '../components/Layout'
+import Content, { HTMLContent } from '../components/Content'
+import ModelList from '../components/ModelList'
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
+import MarkdownContent from '../components/MarkdownContent'
+import Highlight from 'react-highlight.js'
+import ResponsiveIframe from '../components/ResponsiveIframe'
 
 export const ModelPageTemplate = ({
   content,
@@ -20,13 +20,13 @@ export const ModelPageTemplate = ({
   examples,
   tutorials,
   training,
-  helmet
+  helmet,
 }) => {
-  const PostContent = contentComponent || Content;
+  const PostContent = contentComponent || Content
 
   return (
     <article className="ml5Grid__content">
-      {helmet || ""}
+      {helmet || ''}
       <div className="docs">
         <h1 className="">
           {title}
@@ -110,19 +110,19 @@ export const ModelPageTemplate = ({
         </Tabs>
       </div>
     </article>
-  );
-};
+  )
+}
 
 ModelPageTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
   title: PropTypes.string,
-  helmet: PropTypes.object
-};
+  helmet: PropTypes.object,
+}
 
 const ModelPage = ({ data }) => {
-  const { markdownRemark: post } = data;
+  const { markdownRemark: post } = data
 
   return (
     <Layout>
@@ -162,16 +162,16 @@ const ModelPage = ({ data }) => {
         </div>
       </section>
     </Layout>
-  );
-};
+  )
+}
 
 ModelPage.propTypes = {
   data: PropTypes.shape({
-    markdownRemark: PropTypes.object
-  })
-};
+    markdownRemark: PropTypes.object,
+  }),
+}
 
-export default ModelPage;
+export default ModelPage
 
 export const pageQuery = graphql`
   query ModelByID($id: String!) {
@@ -196,4 +196,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`
